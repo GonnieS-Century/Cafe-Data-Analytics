@@ -1,6 +1,6 @@
 CREATE TABLE Item_type (
-ItemID INT IDENTITY (1,1),
-Item_Name VARCHAR (250)
+ItemID INT IDENTITY(1,1),
+Item_Name VARCHAR(250)
 );
 
 --//--
