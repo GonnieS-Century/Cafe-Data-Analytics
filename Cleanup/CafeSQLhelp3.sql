@@ -1,6 +1,6 @@
-create table transaction_type (
-PaymentID int identity(1,1),
-Payment_Method varchar(250),
+CREATE TABLE transaction_type (
+PaymentID INT IDENTITY(1,1),
+Payment_Method VARCHAR(250),
 );
 
 --//--
