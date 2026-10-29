@@ -106,19 +106,19 @@ JOIN transaction_type tt
 
 --//--
 
-select * from Clean_Cafe_Data
-where ItemID = '-1'
+SELECT * FROM Clean_Cafe_Data
+WHERE ItemID = '-1'
 
 -- Checking an invalid ItemID issue
 
-select
+SELECT
 t.ItemID
 FROM [Clean_Cafe_Data] AS c
 LEFT JOIN [Item_type] AS t
     ON c.Item_Name = t.Item_Name; -- Checking the join before making it effective
 
-update c
-set c.itemID = t.ItemID 
+UPDATE c
+SET c.itemID = t.ItemID 
 FROM [Clean_Cafe_Data] AS c
 JOIN [Item_type] AS t
     ON c.Price_Per_Unit = t.Price_Per_Unit
@@ -126,7 +126,7 @@ JOIN [Item_type] AS t
 
 --//--
 
-select distinct PaymentID, Payment_Method from Clean_Cafe_Data
+SELECT DISTINCT PaymentID, Payment_Method FROM Clean_Cafe_Data
 
 UPDATE c
 SET c.PaymentID = p.PaymentID
@@ -135,8 +135,8 @@ Left JOIN [transaction_type] p
     ON c.Payment_Method = p.Payment_Method -- Joining to fill the PaymentID column
 											--Reminder to withhold this column when creating the view
 
-alter table [clean_cafe_data]
-add Transaction_Date date
+ALTER TABLE [clean_cafe_data]
+ADD Transaction_Date date
 
 UPDATE c
 SET c.Transaction_Date = p.Transaction_Date
@@ -187,7 +187,7 @@ LEFT JOIN UniquePrices u
 	WHERE c1.ItemID IS NULL OR c1.Item_Name IS NULL;  -- This script is to replace null values in Item ID and Item_Name with corresponding values derived from Price column.
 
 
-update Clean_Cafe_Data 
+UPDATE Clean_Cafe_Data 
 SET PaymentID =
 	CASE	
 		WHEN PaymentID IS NOT NULL THEN PaymentID
