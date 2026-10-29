@@ -5,7 +5,7 @@ Payment_Method VARCHAR(250),
 
 --//--
 
-select * from [transaction_type]
+SELECT * FROM [transaction_type]
 
 DELETE
 FROM [transaction_type] 
@@ -13,7 +13,7 @@ WHERE PaymentID = '10031'
 	AND PaymentID = '10032'; -- Deleting empty values
 
 UPDATE transaction_type
-SET Payment_Method = 'UNKNOWN'
+	SET Payment_Method = 'UNKNOWN'
 WHERE Payment_Method IS NULL 
    OR Payment_Method = 'ERROR';
 
@@ -31,7 +31,7 @@ WITH Duplicates AS (
         ) AS rn
     FROM transaction_type
 )
-delete FROM Duplicates
+DELETE FROM Duplicates
 WHERE rn > 1;
 
 -- Removing duplicates from table, CTE used for potential views
